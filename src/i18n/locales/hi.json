@@ -25,5 +25,25 @@
     "test": "परीक्षण",
     "play": "खेलें",
     "coming_soon": "जल्द आ रहा है"
+  },
+  "addition_learn": {
+    "title": "जोड़ सीखें",
+    "single_label": "चरण 1",
+    "single_description": "एक अंकीय जोड़",
+    "double_label": "चरण 2",
+    "double_description": "8 से 15 तक की संख्याएँ",
+    "instruction_single": "सभी वस्तुओं पर टैप करके गिनें।",
+    "instruction_double": "समूहों में बनी पंक्तियों को गिनें।",
+    "question_label": "प्रश्न",
+    "tap_count_target": "लक्ष्य गिनती: {{count}}",
+    "count_label": "गिनती",
+    "group_a": "समूह A",
+    "group_b": "समूह B",
+    "objects_count": "{{count}} वस्तुएँ",
+    "object_accessibility": "वस्तु {{count}}",
+    "great_job": "बहुत बढ़िया!",
+    "counted_all_objects": "आपने सभी वस्तुएँ गिन लीं।",
+    "continue_button": "जारी रखें",
+    "new_question": "नया प्रश्न"
   }
 }

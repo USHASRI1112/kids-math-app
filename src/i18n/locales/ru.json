@@ -24,5 +24,25 @@
     "test": "Тест",
     "play": "Играть",
     "coming_soon": "Скоро"
+  },
+  "addition_learn": {
+    "title": "Addition Learn",
+    "single_label": "Stage 1",
+    "single_description": "Single-digit addition",
+    "double_label": "Stage 2",
+    "double_description": "Numbers 8 to 15",
+    "instruction_single": "Tap and count all the objects.",
+    "instruction_double": "Count the grouped rows.",
+    "question_label": "Question",
+    "tap_count_target": "Tap count target: {{count}}",
+    "count_label": "Count",
+    "group_a": "Group A",
+    "group_b": "Group B",
+    "objects_count": "{{count}} objects",
+    "object_accessibility": "Object {{count}}",
+    "great_job": "Great Job!",
+    "counted_all_objects": "You counted all the objects.",
+    "continue_button": "Continue",
+    "new_question": "New Question"
   }
 }

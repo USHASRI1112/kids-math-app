@@ -1,9 +1,11 @@
 import React, { useLayoutEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
+import AdditionLearnEngine from '../../components/AdditionLearnEngine';
 import { RootStackParamList } from '../../navigation/types';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList, 'ActivityDetail'>;
@@ -34,10 +36,14 @@ export default function ActivityDetailScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={styles.container}>
-        <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
-        <Text style={styles.body}>{t('activities.coming_soon')}</Text>
-      </View>
+      {topicKey === 'addition' && activityKey === 'learn' ? (
+        <AdditionLearnEngine />
+      ) : (
+        <View style={styles.container}>
+          <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
+          <Text style={styles.body}>{t('activities.coming_soon')}</Text>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
