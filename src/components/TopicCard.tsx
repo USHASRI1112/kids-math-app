@@ -9,12 +9,11 @@ interface Props {
 
 export default function TopicCard({ title, emoji, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress} accessibilityRole="button">
+    <TouchableOpacity style={styles.card} onPress={onPress} accessibilityRole="button" activeOpacity={0.85}>
       <View style={styles.emojiWrap}>
         <Text style={styles.emoji}>{emoji || '🔢'}</Text>
       </View>
       <Text style={styles.title}>{title}</Text>
-      
     </TouchableOpacity>
   );
 }
@@ -35,5 +34,4 @@ const styles = StyleSheet.create({
   emojiWrap: { marginBottom: 8 },
   emoji: { fontSize: 28 },
   title: { fontSize: 18, fontWeight: '700', textAlign: 'center' },
-  subtitle: { fontSize: 12, color: '#555', marginTop: 6, textAlign: 'center' },
 });

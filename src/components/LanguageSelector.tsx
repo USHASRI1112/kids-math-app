@@ -35,14 +35,15 @@ export default function LanguageSelector() {
     setVisible(false);
   }
 
-  const selected = FULL_LANGUAGES.find((l) => l.code === language) || FULL_LANGUAGES[0];
+  const currentLanguage = language.split('-')[0].toLowerCase();
+  const selected = FULL_LANGUAGES.find((l) => l.code === currentLanguage) || FULL_LANGUAGES[0];
 
   return (
     <View>
       <TouchableOpacity
         onPress={() => setVisible(true)}
         accessibilityRole="button"
-        accessibilityLabel={t('app.open_language_selector')}
+        accessibilityLabel={t('app.select_language')}
         style={styles.iconBtn}
       >
         <Text style={styles.icon}>{selected.icon}</Text>
