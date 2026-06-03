@@ -15,5 +15,14 @@
     "roots": "Radici",
     "premium_title": "Premium — in arrivo",
     "premium_body": "Stiamo lavorando alle funzionalità premium. A presto!"
+  },
+  "activities": {
+    "learn": "Impara",
+    "practice": "Esercizio",
+    "quiz": "Quiz",
+    "timer": "Timer",
+    "test": "Test",
+    "play": "Gioca",
+    "coming_soon": "In arrivo"
   }
 }

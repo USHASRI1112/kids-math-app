@@ -15,5 +15,14 @@
     "roots": "Radicais",
     "premium_title": "Premium — em breve",
     "premium_body": "Estamos a trabalhar em funcionalidades premium. Fique atento!"
+  },
+  "activities": {
+    "learn": "Aprender",
+    "practice": "Praticar",
+    "quiz": "Quiz",
+    "timer": "Cronómetro",
+    "test": "Teste",
+    "play": "Jogar",
+    "coming_soon": "Em breve"
   }
 }

@@ -33,16 +33,28 @@ const resources = {
 
 const fallback = { languageTag: 'en' };
 
+function normalizeLanguageCode(languageTag: string): string {
+  return languageTag.split('-')[0].toLowerCase();
+}
+
 // Determine best language in a safe way that works on native and web
 function detectDeviceLanguage(): string {
   try {
     if (RNLocalize && typeof RNLocalize.getLocales === 'function') {
       const locales = RNLocalize.getLocales();
-      if (locales && locales.length > 0 && locales[0].languageTag) return locales[0].languageTag;
+      if (locales && locales.length > 0 && locales[0].languageTag) {
+        const normalized = normalizeLanguageCode(locales[0].languageTag);
+        if (resources[normalized as keyof typeof resources]) {
+          return normalized;
+        }
+      }
     }
 
     if (typeof navigator !== 'undefined' && navigator.language) {
-      return navigator.language.split('-')[0];
+      const normalized = normalizeLanguageCode(navigator.language);
+      if (resources[normalized as keyof typeof resources]) {
+        return normalized;
+      }
     }
   } catch (e) {
     // ignore and fall through to fallback
@@ -73,12 +85,13 @@ export async function initI18n() {
 }
 
 export async function setI18nLanguage(lng: string) {
+  const normalized = normalizeLanguageCode(lng);
   try {
-    await AsyncStorage.setItem(LANGUAGE_KEY, lng);
+    await AsyncStorage.setItem(LANGUAGE_KEY, normalized);
   } catch (e) {
     // ignore
   }
-  await i18n.changeLanguage(lng);
+  await i18n.changeLanguage(normalized);
 }
 
 export const availableLanguages = ['en', 'es', 'pt', 'de', 'it', 'fr', 'ru', 'id', 'ms', 'hi', 'ko'];

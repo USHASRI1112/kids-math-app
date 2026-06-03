@@ -15,5 +15,14 @@
     "roots": "Akar",
     "premium_title": "Premium — segera hadir",
     "premium_body": "Kami sedang mengerjakan fitur premium. Nantikan!"
+  },
+  "activities": {
+    "learn": "Belajar",
+    "practice": "Latihan",
+    "quiz": "Kuis",
+    "timer": "Timer",
+    "test": "Tes",
+    "play": "Main",
+    "coming_soon": "Segera hadir"
   }
 }

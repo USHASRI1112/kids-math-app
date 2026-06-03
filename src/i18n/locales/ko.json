@@ -15,5 +15,14 @@
     "roots": "루트",
     "premium_title": "프리미엄 — 곧 출시",
     "premium_body": "프리미엄 기능을 작업 중입니다. 기대해 주세요!"
+  },
+  "activities": {
+    "learn": "학습",
+    "practice": "연습",
+    "quiz": "퀴즈",
+    "timer": "타이머",
+    "test": "테스트",
+    "play": "놀이",
+    "coming_soon": "곧 출시"
   }
 }

@@ -15,5 +15,14 @@
     "roots": "Punca",
     "premium_title": "Premium — akan datang",
     "premium_body": "Kami sedang mengusahakan ciri premium. Nantikan!"
+  },
+  "activities": {
+    "learn": "Belajar",
+    "practice": "Latihan",
+    "quiz": "Kuiz",
+    "timer": "Pemasa",
+    "test": "Ujian",
+    "play": "Main",
+    "coming_soon": "Akan datang"
   }
 }

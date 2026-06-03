@@ -16,5 +16,14 @@
     "roots": "Roots",
     "premium_title": "Premium — coming soon",
     "premium_body": "We're working on premium features. Stay tuned!"
+  },
+  "activities": {
+    "learn": "Learn",
+    "practice": "Practice",
+    "quiz": "Quiz",
+    "timer": "Timer",
+    "test": "Test",
+    "play": "Play",
+    "coming_soon": "Coming Soon"
   }
 }

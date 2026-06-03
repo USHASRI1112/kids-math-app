@@ -16,5 +16,14 @@
     "roots": "Raíces",
     "premium_title": "Premium — próximamente",
     "premium_body": "Estamos trabajando en funciones premium. ¡Próximamente!"
+  },
+  "activities": {
+    "learn": "Aprender",
+    "practice": "Practicar",
+    "quiz": "Cuestionario",
+    "timer": "Cronómetro",
+    "test": "Prueba",
+    "play": "Jugar",
+    "coming_soon": "Próximamente"
   }
 }

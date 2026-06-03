@@ -15,5 +15,14 @@
     "roots": "Racines",
     "premium_title": "Premium — bientôt",
     "premium_body": "Nous travaillons sur des fonctionnalités premium. Restez à l'écoute !"
+  },
+  "activities": {
+    "learn": "Apprendre",
+    "practice": "S'exercer",
+    "quiz": "Quiz",
+    "timer": "Minuteur",
+    "test": "Test",
+    "play": "Jouer",
+    "coming_soon": "Bientôt disponible"
   }
 }
