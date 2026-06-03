@@ -6,6 +6,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 import AdditionLearnEngine from '../../components/AdditionLearnEngine';
+import AdditionQuizModule from '../../components/AdditionQuizModule';
+import AdditionPracticeModule from '../../components/AdditionPracticeModule';
+import AdditionTimerModule from '../../components/AdditionTimerModule';
+import AdditionTestModule from '../../components/AdditionTestModule';
 import { RootStackParamList } from '../../navigation/types';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList, 'ActivityDetail'>;
@@ -38,6 +42,14 @@ export default function ActivityDetailScreen() {
     <SafeAreaView style={styles.safe}>
       {topicKey === 'addition' && activityKey === 'learn' ? (
         <AdditionLearnEngine />
+      ) : topicKey === 'addition' && activityKey === 'quiz' ? (
+        <AdditionQuizModule />
+      ) : topicKey === 'addition' && activityKey === 'timer' ? (
+        <AdditionTimerModule />
+      ) : topicKey === 'addition' && activityKey === 'test' ? (
+        <AdditionTestModule />
+      ) : topicKey === 'addition' && activityKey === 'practice' ? (
+        <AdditionPracticeModule />
       ) : (
         <View style={styles.container}>
           <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
