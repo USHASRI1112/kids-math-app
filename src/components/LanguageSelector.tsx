@@ -1,42 +1,96 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  FlatList,
+  Pressable,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import useLanguage from '../hooks/useLanguage';
 
+const FULL_LANGUAGES: { code: string; label: string; icon: string }[] = [
+  { code: 'en', label: 'English', icon: '🇺🇸' },
+  { code: 'es', label: 'Español', icon: '🇪🇸' },
+  { code: 'pt', label: 'Português', icon: '🇵🇹' },
+  { code: 'de', label: 'Deutsch', icon: '🇩🇪' },
+  { code: 'it', label: 'Italiano', icon: '🇮🇹' },
+  { code: 'fr', label: 'Français', icon: '🇫🇷' },
+  { code: 'ru', label: 'Русский', icon: '🇷🇺' },
+  { code: 'id', label: 'Bahasa Indonesia', icon: '🇮🇩' },
+  { code: 'ms', label: 'Melayu', icon: '🇲🇾' },
+  { code: 'hi', label: 'हिन्दी', icon: '🇮🇳' },
+  { code: 'ko', label: '한국어', icon: '🇰🇷' },
+];
+
 export default function LanguageSelector() {
   const { t } = useTranslation();
-  const { language, setLanguage, availableLanguages } = useLanguage();
+  const { language, setLanguage } = useLanguage();
+  const [visible, setVisible] = useState(false);
+
+  function select(lang: string) {
+    setLanguage(lang);
+    setVisible(false);
+  }
+
+  const selected = FULL_LANGUAGES.find((l) => l.code === language) || FULL_LANGUAGES[0];
 
   return (
-    <View style={styles.container} accessible accessibilityRole="radiogroup">
-      <Text style={styles.label}>{t('app.select_language')}</Text>
-      <View style={styles.buttons}>
-        {availableLanguages.map((lng) => (
-          <TouchableOpacity
-            key={lng}
-            style={[styles.button, language === lng && styles.active]}
-            onPress={() => setLanguage(lng)}
-            accessibilityRole="radio"
-            accessibilityState={{ selected: language === lng }}
-          >
-            <Text style={styles.buttonText}>{lng.toUpperCase()}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+    <View>
+      <TouchableOpacity
+        onPress={() => setVisible(true)}
+        accessibilityRole="button"
+        accessibilityLabel={t('app.open_language_selector')}
+        style={styles.iconBtn}
+      >
+        <Text style={styles.icon}>{selected.icon}</Text>
+      </TouchableOpacity>
+
+      <Modal visible={visible} animationType="slide" transparent onRequestClose={() => setVisible(false)}>
+        <Pressable style={styles.backdrop} onPress={() => setVisible(false)} />
+        <View style={styles.sheet} accessibilityRole="menu">
+          <Text style={styles.sheetTitle}>{t('app.select_language')}</Text>
+          <FlatList
+            data={FULL_LANGUAGES}
+            keyExtractor={(it) => it.code}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={[styles.item, language === item.code && styles.selectedItem]}
+                onPress={() => select(item.code)}
+                accessibilityRole="menuitem"
+                accessibilityState={{ selected: language === item.code }}
+              >
+                <Text style={styles.itemLabel}>{item.label}</Text>
+                <Text style={styles.itemCode}>{item.code.toUpperCase()}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      </Modal>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { marginTop: 16, alignItems: 'center' },
-  label: { fontSize: 18, marginBottom: 8 },
-  buttons: { flexDirection: 'row', gap: 8 },
-  button: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    backgroundColor: '#007AFF',
-    borderRadius: 8,
+  iconBtn: { paddingHorizontal: 8, paddingVertical: 4 },
+  icon: { fontSize: 22 },
+  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.3)' },
+  sheet: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    maxHeight: '60%',
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    padding: 12,
   },
-  active: { backgroundColor: '#005BBB' },
-  buttonText: { color: '#fff', fontWeight: '600' },
+  sheetTitle: { fontSize: 18, fontWeight: '600', marginBottom: 8 },
+  item: { paddingVertical: 12, paddingHorizontal: 8, flexDirection: 'row', justifyContent: 'space-between' },
+  selectedItem: { backgroundColor: '#eef6ff', borderRadius: 8 },
+  itemLabel: { fontSize: 16 },
+  itemCode: { fontSize: 12, color: '#666' },
 });
