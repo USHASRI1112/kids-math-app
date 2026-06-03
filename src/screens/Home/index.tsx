@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import TopicCard from '../../components/TopicCard';
 import PremiumModal from '../../components/PremiumModal';
 import LanguageSelector from '../../components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
+import { TOPICS } from '../../data/navigation';
+import { RootStackParamList } from '../../navigation/types';
 
-const TOPICS = [
-  { key: 'addition', title: 'Addition', emoji: '➕' },
-  { key: 'subtraction', title: 'Subtraction', emoji: '➖' },
-  { key: 'multiplication', title: 'Multiplication', emoji: '✖️' },
-  { key: 'division', title: 'Division', emoji: '➗' },
-  { key: 'decimal', title: 'Decimal Operation', emoji: '🔢' },
-  { key: 'fractions', title: 'Fractions', emoji: '🥧' },
-  { key: 'percentages', title: 'Percentages', emoji: '📊' },
-  { key: 'roots', title: 'Roots', emoji: '√' },
-];
+type Navigation = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 export default function Home() {
+  const navigation = useNavigation<Navigation>();
   const { t } = useTranslation();
   const [premiumVisible, setPremiumVisible] = useState(false);
 
@@ -44,7 +40,11 @@ export default function Home() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
           <View style={styles.col}>
-            <TopicCard title={t(`topics.${item.key}`)} emoji={item.emoji} />
+            <TopicCard
+              title={t(`topics.${item.key}`)}
+              emoji={item.emoji}
+              onPress={() => navigation.navigate('TopicActivity', { topicKey: item.key })}
+            />
           </View>
         )}
       />

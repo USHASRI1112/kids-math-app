@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { initI18n } from './src/i18n';
-import Home from './src/screens/Home';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
-  const { t } = useTranslation();
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -18,28 +17,31 @@ export default function App() {
 
   if (!ready) {
     return (
-      <View style={styles.container}>
-        <ActivityIndicator size="large" />
-      </View>
+      <GestureHandlerRootView style={styles.root}>
+        <View style={styles.container}>
+          <ActivityIndicator size="large" />
+        </View>
+      </GestureHandlerRootView>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Home />
+    <GestureHandlerRootView style={styles.root}>
+      <View style={styles.container}>
+        <AppNavigator />
+      </View>
       <StatusBar style="auto" />
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
   },
-  title: { fontSize: 24, fontWeight: '700', marginBottom: 12 },
-  paragraph: { fontSize: 16, textAlign: 'center', marginBottom: 16 },
 });
