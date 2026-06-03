@@ -4,4 +4,17 @@
     "open_prompt": "Open up App.tsx to start working on your app!",
     "select_language": "Select Language"
   }
+  ,
+  "topics": {
+    "addition": "Addition",
+    "subtraction": "Subtraction",
+    "multiplication": "Multiplication",
+    "division": "Division",
+    "decimal": "Decimal Operation",
+    "fractions": "Fractions",
+    "percentages": "Percentages",
+    "roots": "Roots",
+    "premium_title": "Premium — coming soon",
+    "premium_body": "We're working on premium features. Stay tuned!"
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "app": {
+    "welcome": "Bem-vindo ao Kids Math!",
+    "open_prompt": "Abra App.tsx para começar a trabalhar no seu app!",
+    "select_language": "Selecionar idioma"
+  },
+  "topics": {
+    "addition": "Adição",
+    "subtraction": "Subtração",
+    "multiplication": "Multiplicação",
+    "division": "Divisão",
+    "decimal": "Operação decimal",
+    "fractions": "Fraxões",
+    "percentages": "Porcentagens",
+    "roots": "Radicais",
+    "premium_title": "Premium — em breve",
+    "premium_body": "Estamos a trabalhar em funcionalidades premium. Fique atento!"
+  }
+}

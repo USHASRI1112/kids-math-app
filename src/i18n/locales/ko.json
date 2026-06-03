@@ -1,0 +1,19 @@
+{
+  "app": {
+    "welcome": "Kids Math에 오신 것을 환영합니다!",
+    "open_prompt": "앱 작업을 시작하려면 App.tsx를 여세요!",
+    "select_language": "언어 선택"
+  },
+  "topics": {
+    "addition": "덧셈",
+    "subtraction": "뺄셈",
+    "multiplication": "곱셈",
+    "division": "나눗셈",
+    "decimal": "소수 연산",
+    "fractions": "분수",
+    "percentages": "백분율",
+    "roots": "루트",
+    "premium_title": "프리미엄 — 곧 출시",
+    "premium_body": "프리미엄 기능을 작업 중입니다. 기대해 주세요!"
+  }
+}

@@ -4,4 +4,17 @@
     "open_prompt": "अपनी ऐप पर काम शुरू करने के लिए App.tsx खोलें!",
     "select_language": "भाषा चुनें"
   }
+  ,
+  "topics": {
+    "addition": "जोड़",
+    "subtraction": "घटाव",
+    "multiplication": "गुणा",
+    "division": "भाग",
+    "decimal": "दशमलव ऑपरेशन",
+    "fractions": "भिन्न",
+    "percentages": "प्रतिशत",
+    "roots": "মূল (Roots)",
+    "premium_title": "प्रीमियम — जल्द आ रहा है",
+    "premium_body": "हम प्रीमियम फ़ीचर पर काम कर रहे हैं। जल्द ही आ रहा है!"
+  }
 }
