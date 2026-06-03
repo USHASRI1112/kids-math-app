@@ -1,0 +1,19 @@
+{
+  "app": {
+    "welcome": "Selamat datang di Kids Math!",
+    "open_prompt": "Buka App.tsx untuk mulai mengerjakan aplikasimu!",
+    "select_language": "Pilih bahasa"
+  },
+  "topics": {
+    "addition": "Penjumlahan",
+    "subtraction": "Pengurangan",
+    "multiplication": "Perkalian",
+    "division": "Pembagian",
+    "decimal": "Operasi desimal",
+    "fractions": "Pecahan",
+    "percentages": "Persentase",
+    "roots": "Akar",
+    "premium_title": "Premium — segera hadir",
+    "premium_body": "Kami sedang mengerjakan fitur premium. Nantikan!"
+  }
+}

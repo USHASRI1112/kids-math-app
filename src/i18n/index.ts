@@ -6,6 +6,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import en from './locales/en.json';
 import es from './locales/es.json';
 import hi from './locales/hi.json';
+import pt from './locales/pt.json';
+import de from './locales/de.json';
+import it from './locales/it.json';
+import fr from './locales/fr.json';
+import ru from './locales/ru.json';
+import id from './locales/id.json';
+import ms from './locales/ms.json';
+import ko from './locales/ko.json';
 
 const LANGUAGE_KEY = 'app-language';
 
@@ -13,6 +21,14 @@ const resources = {
   en: { translation: en },
   es: { translation: es },
   hi: { translation: hi },
+  pt: { translation: pt },
+  de: { translation: de },
+  it: { translation: it },
+  fr: { translation: fr },
+  ru: { translation: ru },
+  id: { translation: id },
+  ms: { translation: ms },
+  ko: { translation: ko },
 };
 
 const fallback = { languageTag: 'en' };
@@ -65,6 +81,6 @@ export async function setI18nLanguage(lng: string) {
   await i18n.changeLanguage(lng);
 }
 
-export const availableLanguages = ['en', 'es', 'hi'];
+export const availableLanguages = ['en', 'es', 'pt', 'de', 'it', 'fr', 'ru', 'id', 'ms', 'hi', 'ko'];
 
 export default i18n;

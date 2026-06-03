@@ -1,0 +1,19 @@
+{
+  "app": {
+    "welcome": "Добро пожаловать в Kids Math!",
+    "open_prompt": "Откройте App.tsx, чтобы начать работу над приложением!",
+    "select_language": "Выберите язык"
+  },
+  "topics": {
+    "addition": "Сложение",
+    "subtraction": "Вычитание",
+    "multiplication": "Умножение",
+    "division": "Деление",
+    "decimal": "Операции с десятичными",
+    "fractions": "Дроби",
+    "percentages": "Проценты",
+    "roots": "Корни",
+    "premium_title": "Премиум — скоро",
+    "premium_body": "Мы работаем над премиум-функциями. Следите за обновлениями!"
+  }
+}
