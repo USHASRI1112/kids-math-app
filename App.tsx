@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { initI18n } from './src/i18n';
-import LanguageSelector from './src/components/LanguageSelector';
+import Home from './src/screens/Home';
 
 export default function App() {
   const { t } = useTranslation();
@@ -26,9 +26,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t('app.welcome')}</Text>
-      <Text style={styles.paragraph}>{t('app.open_prompt')}</Text>
-      <LanguageSelector />
+      <Home />
       <StatusBar style="auto" />
     </View>
   );
