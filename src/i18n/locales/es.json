@@ -1,0 +1,7 @@
+{
+  "app": {
+    "welcome": "¡Bienvenido a Kids Math!",
+    "open_prompt": "¡Abre App.tsx para comenzar a trabajar en tu aplicación!",
+    "select_language": "Seleccionar idioma"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "app": {
+    "welcome": "Welcome to Kids Math!",
+    "open_prompt": "Open up App.tsx to start working on your app!",
+    "select_language": "Select Language"
+  }
+}
