@@ -1,6 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import * as RNLocalize from 'react-native-localize';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import en from './locales/en.json';
@@ -40,20 +39,20 @@ function normalizeLanguageCode(languageTag: string): string {
 // Determine best language in a safe way that works on native and web
 function detectDeviceLanguage(): string {
   try {
-    if (RNLocalize && typeof RNLocalize.getLocales === 'function') {
-      const locales = RNLocalize.getLocales();
-      if (locales && locales.length > 0 && locales[0].languageTag) {
-        const normalized = normalizeLanguageCode(locales[0].languageTag);
-        if (resources[normalized as keyof typeof resources]) {
-          return normalized;
-        }
-      }
-    }
-
     if (typeof navigator !== 'undefined' && navigator.language) {
       const normalized = normalizeLanguageCode(navigator.language);
       if (resources[normalized as keyof typeof resources]) {
         return normalized;
+      }
+    }
+
+    if (typeof Intl !== 'undefined' && typeof Intl.DateTimeFormat === 'function') {
+      const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+      if (locale) {
+        const normalized = normalizeLanguageCode(locale);
+        if (resources[normalized as keyof typeof resources]) {
+          return normalized;
+        }
       }
     }
   } catch (e) {

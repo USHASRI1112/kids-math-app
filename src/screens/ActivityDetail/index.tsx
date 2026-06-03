@@ -1,9 +1,15 @@
 import React, { useLayoutEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
+import AdditionLearnEngine from '../../components/AdditionLearnEngine';
+import AdditionQuizModule from '../../components/AdditionQuizModule';
+import AdditionPracticeModule from '../../components/AdditionPracticeModule';
+import AdditionTimerModule from '../../components/AdditionTimerModule';
+import AdditionTestModule from '../../components/AdditionTestModule';
 import { RootStackParamList } from '../../navigation/types';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList, 'ActivityDetail'>;
@@ -34,10 +40,22 @@ export default function ActivityDetailScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={styles.container}>
-        <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
-        <Text style={styles.body}>{t('activities.coming_soon')}</Text>
-      </View>
+      {topicKey === 'addition' && activityKey === 'learn' ? (
+        <AdditionLearnEngine />
+      ) : topicKey === 'addition' && activityKey === 'quiz' ? (
+        <AdditionQuizModule />
+      ) : topicKey === 'addition' && activityKey === 'timer' ? (
+        <AdditionTimerModule />
+      ) : topicKey === 'addition' && activityKey === 'test' ? (
+        <AdditionTestModule />
+      ) : topicKey === 'addition' && activityKey === 'practice' ? (
+        <AdditionPracticeModule />
+      ) : (
+        <View style={styles.container}>
+          <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
+          <Text style={styles.body}>{t('activities.coming_soon')}</Text>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
