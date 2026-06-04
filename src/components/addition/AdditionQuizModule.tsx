@@ -257,6 +257,12 @@ export default function AdditionQuizModule() {
     ]);
   }
 
+  const numericAnswer = Number(inputValue);
+  const numericAnswerIsCorrect = locked && currentQuestion?.type !== 'multiple_choice'
+    ? inputValue.length > 0 && numericAnswer === Number(currentQuestion.answer)
+    : false;
+  const numericAnswerIsWrong = locked && currentQuestion?.type !== 'multiple_choice' && inputValue.length > 0 && !numericAnswerIsCorrect;
+
   function goNextQuestion() {
     if (currentIndex + 1 >= questions.length) {
       const finalScore = score;
@@ -376,9 +382,24 @@ export default function AdditionQuizModule() {
 
             {currentQuestion?.type === 'fill_blank' || currentQuestion?.type === 'missing_number' ? (
               <View style={styles.numericSection}>
-                <View style={styles.inputDisplay}>
-                  <Text style={styles.inputText}>{inputValue || ' '}</Text>
+                <View style={[
+                  styles.inputDisplay,
+                  numericAnswerIsCorrect && styles.inputDisplayCorrect,
+                  numericAnswerIsWrong && styles.inputDisplayWrong,
+                ]}>
+                  <Text style={[
+                    styles.inputText,
+                    numericAnswerIsCorrect && styles.inputTextCorrect,
+                    numericAnswerIsWrong && styles.inputTextWrong,
+                  ]}>
+                    {locked && inputValue.length > 0 ? inputValue : inputValue || ' '}
+                  </Text>
                 </View>
+                {locked ? (
+                  <Text style={styles.correctAnswerText}>
+                    {t('addition_quiz.correct_answer', { defaultValue: 'Correct Answer' })}: {currentQuestion?.answer}
+                  </Text>
+                ) : null}
                 <View style={styles.keypad}>
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((digit) => (
                     <Pressable
@@ -624,10 +645,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 12,
   },
+  inputDisplayCorrect: {
+    backgroundColor: '#EAF8EF',
+    borderColor: '#BFE7CC',
+  },
+  inputDisplayWrong: {
+    backgroundColor: '#FFF0F0',
+    borderColor: '#F4B4B4',
+  },
   inputText: {
     fontSize: 30,
     fontWeight: '900',
     color: '#16336C',
+  },
+  inputTextCorrect: {
+    color: '#1E7A3A',
+  },
+  inputTextWrong: {
+    color: '#C94B4B',
+  },
+  correctAnswerText: {
+    fontSize: 14,
+    color: '#1E7A3A',
+    fontWeight: '800',
   },
   keypad: {
     flexDirection: 'row',

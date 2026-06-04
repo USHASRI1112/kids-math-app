@@ -1,15 +1,20 @@
-import React, { useLayoutEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import AdditionLearnEngine from '../../components/AdditionLearnEngine';
-import AdditionQuizModule from '../../components/AdditionQuizModule';
-import AdditionPracticeModule from '../../components/AdditionPracticeModule';
-import AdditionTimerModule from '../../components/AdditionTimerModule';
-import AdditionTestModule from '../../components/AdditionTestModule';
+import AdditionLearnEngine from '../../components/addition/AdditionLearnEngine';
+import AdditionPracticeModule from '../../components/addition/AdditionPracticeModule';
+import AdditionQuizModule from '../../components/addition/AdditionQuizModule';
+import AdditionTestModule from '../../components/addition/AdditionTestModule';
+import AdditionTimerModule from '../../components/addition/AdditionTimerModule';
+import SubtractionLearnEngine from '../../components/subtraction/SubtractionLearnEngine';
+import SubtractionPracticeModule from '../../components/subtraction/SubtractionPracticeModule';
+import SubtractionTestModule from '../../components/subtraction/SubtractionTestModule';
+import SubtractionQuizModule from '../../components/subtraction/SubtractionQuizModule';
+import SubtractionTimerModule from '../../components/subtraction/SubtractionTimerModule';
 import { RootStackParamList } from '../../navigation/types';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList, 'ActivityDetail'>;
@@ -42,14 +47,24 @@ export default function ActivityDetailScreen() {
     <SafeAreaView style={styles.safe}>
       {topicKey === 'addition' && activityKey === 'learn' ? (
         <AdditionLearnEngine />
+      ) : topicKey === 'subtraction' && activityKey === 'learn' ? (
+        <SubtractionLearnEngine />
       ) : topicKey === 'addition' && activityKey === 'quiz' ? (
         <AdditionQuizModule />
+      ) : topicKey === 'subtraction' && activityKey === 'quiz' ? (
+        <SubtractionQuizModule />
       ) : topicKey === 'addition' && activityKey === 'timer' ? (
         <AdditionTimerModule />
+      ) : topicKey === 'subtraction' && activityKey === 'timer' ? (
+        <SubtractionTimerModule />
       ) : topicKey === 'addition' && activityKey === 'test' ? (
         <AdditionTestModule />
+      ) : topicKey === 'subtraction' && activityKey === 'test' ? (
+        <SubtractionTestModule />
       ) : topicKey === 'addition' && activityKey === 'practice' ? (
         <AdditionPracticeModule />
+      ) : topicKey === 'subtraction' && activityKey === 'practice' ? (
+        <SubtractionPracticeModule />
       ) : (
         <View style={styles.container}>
           <Text style={styles.title}>{`${topicTitle} - ${activityTitle}`}</Text>
