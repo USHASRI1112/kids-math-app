@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import KidBackdrop from '../KidBackdrop';
 
 type Stage = 'single' | 'double';
 
@@ -143,6 +144,7 @@ export default function AdditionLearnEngine() {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+      <KidBackdrop />
       <View style={styles.hero}>
         <Text style={styles.heroKicker}>{t(STAGES.find((item) => item.key === stage)?.labelKey ?? 'addition_learn.single_label')}</Text>
         <Text style={styles.heroTitle}>{t('addition_learn.title')}</Text>
@@ -345,30 +347,38 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingBottom: 32,
     gap: 14,
+    backgroundColor: '#FFF8FC',
   },
   hero: {
-    backgroundColor: '#EAF2FF',
-    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
     padding: 18,
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   heroKicker: {
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 1,
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     marginBottom: 6,
   },
   heroTitle: {
     fontSize: 28,
-    fontWeight: '800',
-    color: '#16336C',
+    fontWeight: '900',
+    color: '#7E2D6A',
     marginBottom: 8,
   },
   heroBody: {
     fontSize: 16,
     lineHeight: 22,
-    color: '#38507D',
+    color: '#704D66',
   },
   stageRow: {
     flexDirection: 'row',
@@ -376,75 +386,80 @@ const styles = StyleSheet.create({
   },
   stageChip: {
     flex: 1,
-    borderRadius: 18,
+    borderRadius: 22,
     paddingVertical: 12,
     paddingHorizontal: 12,
-    backgroundColor: '#F4F7FD',
-    borderWidth: 1,
-    borderColor: '#D9E3F6',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   stageChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   stageChipLabel: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#16336C',
+    color: '#7E2D6A',
     marginBottom: 4,
   },
   stageChipLabelActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   stageChipDescription: {
     fontSize: 12,
-    color: '#5D7195',
+    color: '#704D66',
   },
   stageChipDescriptionActive: {
-    color: '#DCE6FF',
+    color: '#FFB3D1',
   },
   questionCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
   },
   questionLabel: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     marginBottom: 8,
   },
   questionText: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
     marginBottom: 10,
   },
   totalPill: {
     alignSelf: 'flex-start',
-    backgroundColor: '#EEF4FF',
+    backgroundColor: '#FFF2FA',
     borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
   totalPillText: {
-    color: '#335394',
+    color: '#FF6B9E',
     fontWeight: '700',
   },
   counterCard: {
-    backgroundColor: '#FFF9EC',
-    borderRadius: 24,
+    backgroundColor: '#FFF8FC',
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#F3E1A8',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   counterLabel: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#A56E00',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     marginBottom: 10,
   },
@@ -457,7 +472,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'baseline',
-    backgroundColor: '#F5D46E',
+    backgroundColor: '#FFD36E',
     borderRadius: 999,
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -466,17 +481,17 @@ const styles = StyleSheet.create({
   largeCounterValue: {
     fontSize: 26,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   largeCounterSeparator: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#7A5C00',
+    color: '#8A6500',
   },
   largeCounterTotal: {
     fontSize: 20,
     fontWeight: '800',
-    color: '#7A5C00',
+    color: '#8A6500',
   },
   counterBubble: {
     width: 34,
@@ -484,14 +499,14 @@ const styles = StyleSheet.create({
     borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5D46E',
+    backgroundColor: '#FFD36E',
   },
   counterBubbleActive: {
-    backgroundColor: '#16336C',
+    backgroundColor: '#FF6B9E',
   },
   counterBubbleText: {
     fontWeight: '800',
-    color: '#7A5C00',
+    color: '#8A6500',
     fontSize: 13,
   },
   counterBubbleTextActive: {
@@ -499,21 +514,21 @@ const styles = StyleSheet.create({
   },
   groupCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   groupTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   groupSubtitle: {
     marginTop: 4,
     marginBottom: 14,
     fontSize: 14,
-    color: '#5D7195',
+    color: '#704D66',
   },
   objectGrid: {
     flexDirection: 'row',
@@ -526,21 +541,21 @@ const styles = StyleSheet.create({
   },
   groupRow: {
     borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
-    backgroundColor: '#F5F8FF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    backgroundColor: '#FFF8FC',
     padding: 12,
   },
   groupRowPressed: {
     transform: [{ scale: 0.99 }],
   },
   groupRowTapped: {
-    backgroundColor: '#DDE9FF',
-    borderColor: '#8CB2FF',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   groupRowCount: {
     alignSelf: 'flex-start',
-    backgroundColor: '#16336C',
+    backgroundColor: '#FF6B9E',
     borderRadius: 999,
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -562,7 +577,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFF2FA',
   },
   objectEmojiSmall: {
     fontSize: 18,
@@ -573,48 +588,48 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5F8FF',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   objectTilePressed: {
     transform: [{ scale: 0.97 }],
   },
   objectTileTapped: {
-    backgroundColor: '#DDE9FF',
-    borderColor: '#8CB2FF',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   objectEmoji: {
     fontSize: 28,
   },
   successCard: {
-    backgroundColor: '#EAF8EF',
-    borderRadius: 24,
+    backgroundColor: '#FFF0F7',
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#BFE7CC',
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
     alignItems: 'center',
   },
   successTitle: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#1E7A3A',
+    color: '#FF6B9E',
     marginBottom: 8,
   },
   successEquation: {
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
     marginBottom: 6,
   },
   successBody: {
     fontSize: 16,
-    color: '#2E5E43',
+    color: '#704D66',
     textAlign: 'center',
   },
   primaryButton: {
-    backgroundColor: '#16336C',
-    borderRadius: 18,
+    backgroundColor: '#FF6B9E',
+    borderRadius: 999,
     paddingVertical: 16,
     alignItems: 'center',
   },

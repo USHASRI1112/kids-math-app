@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import KidBackdrop from '../KidBackdrop';
 
 type PracticeStage = 1 | 2 | 3;
 type Difficulty = 'easy' | 'medium' | 'hard';
@@ -456,6 +457,7 @@ export default function SubtractionPracticeModule() {
 
   return (
     <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+      <KidBackdrop />
       <View style={styles.headerCard}>
         <View>
           <Text style={styles.kicker}>{t('subtraction_practice.title')}</Text>
@@ -716,18 +718,24 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 14,
     paddingBottom: 32,
+    backgroundColor: '#FFF8FC',
   },
   headerCard: {
-    backgroundColor: '#F4F7FD',
-    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#D9E3F6',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
   },
   kicker: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -735,22 +743,24 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   badgeCard: {
-    backgroundColor: '#16336C',
-    borderRadius: 22,
+    backgroundColor: '#FFF0F7',
+    borderRadius: 24,
     padding: 16,
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
   },
   badgeLabel: {
-    color: '#D9E7FF',
+    color: '#FF6B9E',
     fontSize: 12,
     fontWeight: '800',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
   badgeTitle: {
-    color: '#FFFFFF',
+    color: '#7E2D6A',
     fontSize: 18,
     fontWeight: '900',
     marginTop: 6,
@@ -765,56 +775,61 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 14,
     paddingHorizontal: 12,
-    borderWidth: 1,
-    borderColor: '#DCE6F5',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     gap: 4,
   },
   stageChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   stageChipTitle: {
     fontSize: 13,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   stageChipTitleActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   stageChipSubtitle: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#5D718F',
+    color: '#704D66',
   },
   stageChipSubtitleActive: {
-    color: '#D8E7FF',
+    color: '#FFB3D1',
   },
   stageCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 14,
   },
   stageHeading: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   stageDescription: {
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
     fontWeight: '700',
   },
   questionText: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   hintText: {
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
     fontWeight: '700',
   },
   optionGrid: {
@@ -825,10 +840,10 @@ const styles = StyleSheet.create({
   optionCard: {
     width: '48%',
     minHeight: 72,
-    borderRadius: 18,
-    backgroundColor: '#F7FAFF',
-    borderWidth: 1,
-    borderColor: '#DCE6F5',
+    borderRadius: 20,
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -836,28 +851,28 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.98 }],
   },
   optionCardCorrect: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#95D1A7',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   optionCardWrong: {
-    backgroundColor: '#FFF0F0',
-    borderColor: '#E7A5A5',
+    backgroundColor: '#FFE8EF',
+    borderColor: '#FF9DB6',
   },
   optionValue: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   optionValueCorrect: {
-    color: '#1D6A35',
+    color: '#FF6B9E',
   },
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'center',
   },
   primaryButton: {
-    backgroundColor: '#16336C',
-    borderRadius: 18,
+    backgroundColor: '#FF6B9E',
+    borderRadius: 999,
     paddingVertical: 15,
     paddingHorizontal: 18,
     alignItems: 'center',
@@ -870,20 +885,22 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   completeCard: {
-    backgroundColor: '#EAF8EF',
-    borderRadius: 20,
+    backgroundColor: '#FFF0F7',
+    borderRadius: 24,
     padding: 16,
     gap: 8,
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
   },
   completeTitle: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#1D6A35',
+    color: '#FF6B9E',
   },
   completeBody: {
     fontSize: 15,
     lineHeight: 21,
-    color: '#2F5C3B',
+    color: '#704D66',
     fontWeight: '700',
   },
   matchColumns: {
@@ -897,36 +914,36 @@ const styles = StyleSheet.create({
   columnTitle: {
     fontSize: 16,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#FF6B9E',
     marginBottom: 2,
   },
   matchCard: {
-    backgroundColor: '#F7FAFF',
-    borderWidth: 1,
-    borderColor: '#DCE6F5',
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     borderRadius: 18,
     padding: 14,
     minHeight: 62,
     justifyContent: 'center',
   },
   matchCardSelected: {
-    borderColor: '#5A7DCB',
-    backgroundColor: '#EDF3FF',
+    borderColor: '#FF6B9E',
+    backgroundColor: '#FFF2FA',
   },
   matchCardMatched: {
-    borderColor: '#95D1A7',
-    backgroundColor: '#EAF8EF',
+    borderColor: '#FFB3D1',
+    backgroundColor: '#FFF0F7',
   },
   matchText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   matchMark: {
     marginTop: 6,
     fontSize: 14,
     fontWeight: '900',
-    color: '#1D6A35',
+    color: '#FF6B9E',
   },
   difficultyRow: {
     flexDirection: 'row',
@@ -934,24 +951,24 @@ const styles = StyleSheet.create({
   },
   difficultyChip: {
     flex: 1,
-    backgroundColor: '#F7FAFF',
-    borderWidth: 1,
-    borderColor: '#DCE6F5',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     borderRadius: 18,
     paddingVertical: 12,
     alignItems: 'center',
   },
   difficultyChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   difficultyText: {
-    color: '#16336C',
+    color: '#7E2D6A',
     fontSize: 14,
     fontWeight: '800',
   },
   difficultyTextActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   bubbleGrid: {
     flexDirection: 'row',
@@ -964,9 +981,9 @@ const styles = StyleSheet.create({
     width: 78,
     height: 78,
     borderRadius: 39,
-    backgroundColor: '#DDEBFF',
+    backgroundColor: '#FFF8FC',
     borderWidth: 2,
-    borderColor: '#AFC5F0',
+    borderColor: '#FFD2EA',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -974,8 +991,8 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.95 }],
   },
   bubblePopped: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#95D1A7',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
     transform: [{ scale: 0.88 }],
     opacity: 0.8,
   },
@@ -983,15 +1000,15 @@ const styles = StyleSheet.create({
     transform: [{ translateX: 4 }],
   },
   bubbleWrong: {
-    backgroundColor: '#FFE1E1',
-    borderColor: '#D95353',
+    backgroundColor: '#FFE8EF',
+    borderColor: '#FF9DB6',
   },
   bubbleText: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   bubbleTextPopped: {
-    color: '#1D6A35',
+    color: '#FF6B9E',
   },
 });

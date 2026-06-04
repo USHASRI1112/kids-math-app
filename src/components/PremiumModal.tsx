@@ -13,10 +13,11 @@ export default function PremiumModal({ visible, onClose }: Props) {
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={styles.backdrop}>
         <View style={styles.container}>
+          <Text style={styles.bubble}>💎</Text>
           <Text style={styles.title}>{t('topics.premium_title')}</Text>
           <Text style={styles.body}>{t('topics.premium_body')}</Text>
           <TouchableOpacity style={styles.button} onPress={onClose} accessibilityRole="button">
-            <Text style={styles.buttonText}>Close</Text>
+            <Text style={styles.buttonText}>{t('app.close', { defaultValue: 'Close' })}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -25,10 +26,24 @@ export default function PremiumModal({ visible, onClose }: Props) {
 }
 
 const styles = StyleSheet.create({
-  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', alignItems: 'center' },
-  container: { width: '80%', backgroundColor: '#fff', borderRadius: 12, padding: 20, alignItems: 'center' },
-  title: { fontSize: 20, fontWeight: '700', marginBottom: 8 },
-  body: { fontSize: 14, color: '#444', marginBottom: 16, textAlign: 'center' },
-  button: { backgroundColor: '#007AFF', paddingHorizontal: 18, paddingVertical: 10, borderRadius: 8 },
-  buttonText: { color: '#fff', fontWeight: '600' },
+  backdrop: { flex: 1, backgroundColor: 'rgba(255, 102, 158, 0.24)', justifyContent: 'center', alignItems: 'center' },
+  container: {
+    width: '84%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
+    padding: 20,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.16,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 4,
+  },
+  bubble: { fontSize: 36, marginBottom: 8 },
+  title: { fontSize: 22, fontWeight: '900', marginBottom: 8, color: '#7E2D6A' },
+  body: { fontSize: 15, color: '#704D66', marginBottom: 18, textAlign: 'center', lineHeight: 22 },
+  button: { backgroundColor: '#FF6B9E', paddingHorizontal: 22, paddingVertical: 12, borderRadius: 999 },
+  buttonText: { color: '#fff', fontWeight: '900' },
 });
