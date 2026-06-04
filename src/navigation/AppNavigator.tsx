@@ -15,11 +15,11 @@ export default function AppNavigator() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerStyle: { backgroundColor: '#FFFFFF' },
+          headerStyle: { backgroundColor: '#FFF2FA' },
           headerShadowVisible: false,
-          headerTintColor: '#16336C',
-          headerTitleStyle: { fontWeight: '700' },
-          contentStyle: { backgroundColor: '#FFFFFF' },
+          headerTintColor: '#8B3E74',
+          headerTitleStyle: { fontWeight: '900' },
+          contentStyle: { backgroundColor: '#FFF8FC' },
         }}
       >
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import KidBackdrop from '../KidBackdrop';
 
 type ObjectAsset = {
   key: string;
@@ -209,6 +210,7 @@ export default function SubtractionLearnEngine() {
 
   return (
     <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+      <KidBackdrop />
       <View style={styles.hero}>
         <Text style={styles.heroKicker}>{t('subtraction_learn.title', { defaultValue: 'Subtraction Learn' })}</Text>
         <Text style={styles.heroTitle}>{t('subtraction_learn.subtitle', { defaultValue: 'Stage 1 - Taking Away Objects' })}</Text>
@@ -420,32 +422,38 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 14,
     paddingBottom: 32,
+    backgroundColor: '#FFF8FC',
   },
   hero: {
-    backgroundColor: '#F4F7FD',
-    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#D9E3F6',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   heroKicker: {
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 1,
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     marginBottom: 6,
   },
   heroTitle: {
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
     marginBottom: 8,
   },
   heroBody: {
     fontSize: 16,
     lineHeight: 22,
-    color: '#38507D',
+    color: '#704D66',
   },
   stageSwitcher: {
     flexDirection: 'row',
@@ -454,64 +462,74 @@ const styles = StyleSheet.create({
   stageChip: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    paddingVertical: 14,
+    borderRadius: 22,
+    paddingVertical: 12,
     paddingHorizontal: 12,
-    borderWidth: 1,
-    borderColor: '#DCE6F5',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     gap: 4,
   },
   stageChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   stageChipLabel: {
-    fontSize: 13,
-    fontWeight: '900',
-    color: '#16336C',
+    fontSize: 16,
+    fontWeight: '800',
+    color: '#7E2D6A',
+    marginBottom: 4,
   },
   stageChipLabelActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   stageChipSubLabel: {
     fontSize: 12,
-    fontWeight: '700',
-    color: '#5D718F',
+    color: '#704D66',
   },
   stageChipSubLabelActive: {
-    color: '#D8E7FF',
+    color: '#FFB3D1',
   },
   questionCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 10,
   },
   questionLabel: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
   questionText: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   questionBody: {
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
     fontWeight: '700',
   },
   objectCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 14,
   },
   objectHeader: {
@@ -523,12 +541,12 @@ const styles = StyleSheet.create({
   objectTitle: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   objectCount: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#4A5A78',
+    color: '#FF6B9E',
   },
   objectGrid: {
     flexDirection: 'row',
@@ -541,19 +559,19 @@ const styles = StyleSheet.create({
     minWidth: 90,
     aspectRatio: 1,
     borderRadius: 22,
-    backgroundColor: '#FFF7E8',
+    backgroundColor: '#FFF8FC',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
-    borderColor: '#F5DFA9',
+    borderColor: '#FFD2EA',
     position: 'relative',
   },
   objectTilePressed: {
     transform: [{ scale: 0.96 }],
   },
   objectTileRemoved: {
-    backgroundColor: '#F2F6FD',
-    borderColor: '#D7E2F4',
+    backgroundColor: '#FFE4F1',
+    borderColor: '#FFB3D1',
     opacity: 0.5,
     transform: [{ scale: 0.9 }],
   },
@@ -566,32 +584,32 @@ const styles = StyleSheet.create({
   crossMark: {
     position: 'absolute',
     fontSize: 28,
-    color: '#C94B4B',
+    color: '#FF6B9E',
     fontWeight: '900',
   },
   resultCard: {
-    backgroundColor: '#EAF8EF',
+    backgroundColor: '#FFF0F7',
     borderRadius: 24,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#BFE3C8',
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
     gap: 10,
   },
   resultTitle: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#1D6A35',
+    color: '#FF6B9E',
   },
   resultBody: {
     fontSize: 15,
     lineHeight: 22,
-    color: '#2F5C3B',
+    color: '#704D66',
     fontWeight: '700',
   },
   resultEquation: {
     fontSize: 26,
     fontWeight: '900',
-    color: '#1B5631',
+    color: '#7E2D6A',
   },
   remainingWrap: {
     flexDirection: 'row',
@@ -605,14 +623,21 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D9F1DF',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   lineCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 14,
   },
   lineHeader: {
@@ -625,11 +650,11 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 14,
     lineHeight: 20,
-    color: '#4A5A78',
+    color: '#704D66',
     fontWeight: '700',
   },
   lineBadge: {
-    backgroundColor: '#EAF1FF',
+    backgroundColor: '#FFF2FA',
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 999,
@@ -637,7 +662,7 @@ const styles = StyleSheet.create({
   lineBadgeText: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#2D4F95',
+    color: '#FF6B9E',
   },
   lineTrackWrap: {
     paddingTop: 58,
@@ -646,7 +671,7 @@ const styles = StyleSheet.create({
   lineTrack: {
     height: 8,
     borderRadius: 999,
-    backgroundColor: '#D7E3F5',
+    backgroundColor: '#FFD2EA',
     marginTop: 22,
   },
   lineIndicator: {
@@ -658,8 +683,8 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#16336C',
-    shadowColor: '#16336C',
+    backgroundColor: '#FF6B9E',
+    shadowColor: '#D84E9A',
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
@@ -689,35 +714,35 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.96 }],
   },
   lineNumberStart: {
-    backgroundColor: '#FDECC6',
+    backgroundColor: '#FFD36E',
   },
   lineNumberResult: {
-    backgroundColor: '#D9F1DF',
+    backgroundColor: '#FFB3D1',
   },
   lineNumberCurrent: {
-    backgroundColor: '#DCE7FF',
+    backgroundColor: '#FF6B9E',
   },
   lineNumberText: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#4A5A78',
+    color: '#704D66',
   },
   lineNumberTextStart: {
-    color: '#A16B00',
+    color: '#7E2D6A',
   },
   lineNumberTextResult: {
-    color: '#1D6A35',
+    color: '#7E2D6A',
   },
   lineNumberTextCurrent: {
-    color: '#16336C',
+    color: '#FFFFFF',
   },
   lineControls: {
     flexDirection: 'row',
     justifyContent: 'center',
   },
   primaryButton: {
-    backgroundColor: '#16336C',
-    borderRadius: 18,
+    backgroundColor: '#FF6B9E',
+    borderRadius: 999,
     paddingVertical: 15,
     paddingHorizontal: 18,
     alignItems: 'center',

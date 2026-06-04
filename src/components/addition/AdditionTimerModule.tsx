@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
+import KidBackdrop from '../KidBackdrop';
 
 type TimerDuration = 30 | 60 | 120;
 
@@ -275,6 +276,7 @@ export default function AdditionTimerModule() {
 
   return (
     <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+      <KidBackdrop />
       <View style={styles.headerCard}>
         <View>
           <Text style={styles.kicker}>{t('activities.timer')}</Text>
@@ -416,16 +418,24 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 14,
     paddingBottom: 32,
+    backgroundColor: '#FFF8FC',
   },
   headerCard: {
-    backgroundColor: '#EAF2FF',
-    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
     padding: 18,
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
   },
   kicker: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -433,56 +443,56 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   headerSubtitle: {
     marginTop: 4,
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
   },
   card: {
     backgroundColor: '#FFFFFF',
     borderRadius: 24,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     gap: 14,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   cardBody: {
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
   },
   durationRow: {
     gap: 10,
   },
   durationCard: {
     borderRadius: 18,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     padding: 14,
     gap: 4,
   },
   durationCardActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   durationText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   durationTextActive: {
     color: '#FFFFFF',
   },
   durationScore: {
     fontSize: 13,
-    color: '#5D7195',
+    color: '#704D66',
     fontWeight: '700',
   },
   statsRow: {
@@ -494,16 +504,16 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     minWidth: '30%',
     borderRadius: 16,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    backgroundColor: '#FFF0F7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     paddingVertical: 12,
     paddingHorizontal: 14,
     gap: 2,
   },
   statLabel: {
     fontSize: 12,
-    color: '#5D7195',
+    color: '#704D66',
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -511,16 +521,16 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   questionText: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#FF6B9E',
   },
   feedbackText: {
     fontSize: 15,
-    color: '#5D7195',
+    color: '#704D66',
     fontWeight: '700',
     minHeight: 20,
   },
@@ -532,10 +542,10 @@ const styles = StyleSheet.create({
   optionCard: {
     width: '48%',
     minHeight: 76,
-    borderRadius: 18,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    borderRadius: 20,
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -543,37 +553,42 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.98 }],
   },
   optionCardCorrect: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#BFE7CC',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   optionCardWrong: {
-    backgroundColor: '#FFF0F0',
-    borderColor: '#F4B4B4',
+    backgroundColor: '#FFE8EF',
+    borderColor: '#FF9DB6',
   },
   optionText: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   optionTextCorrect: {
-    color: '#1E7A3A',
+    color: '#FF6B9E',
   },
   resultsCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 14,
   },
   completeTitle: {
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   completeBody: {
     fontSize: 16,
-    color: '#4A5A78',
+    color: '#704D66',
     fontWeight: '700',
   },
   statsGrid: {
@@ -583,28 +598,28 @@ const styles = StyleSheet.create({
   },
   statCard: {
     width: '48%',
-    borderRadius: 18,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    borderRadius: 20,
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     padding: 14,
     gap: 4,
   },
   resultsSummary: {
     borderRadius: 18,
-    backgroundColor: '#FFF8E6',
+    backgroundColor: '#FFF0F7',
     padding: 14,
     gap: 4,
-    borderWidth: 1,
-    borderColor: '#F2E1A7',
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
   },
   summaryText: {
-    color: '#7A5600',
+    color: '#704D66',
     fontSize: 15,
     fontWeight: '800',
   },
   highScore: {
-    color: '#1E7A3A',
+    color: '#FF6B9E',
     fontSize: 15,
     fontWeight: '900',
   },
@@ -614,8 +629,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   primaryButton: {
-    backgroundColor: '#16336C',
-    borderRadius: 18,
+    backgroundColor: '#FF6B9E',
+    borderRadius: 999,
     paddingVertical: 14,
     paddingHorizontal: 18,
     alignItems: 'center',
@@ -626,14 +641,14 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   secondaryButton: {
-    backgroundColor: '#EEF4FF',
-    borderRadius: 18,
+    backgroundColor: '#FFF2FA',
+    borderRadius: 999,
     paddingVertical: 14,
     paddingHorizontal: 18,
     alignItems: 'center',
   },
   secondaryButtonText: {
-    color: '#16336C',
+    color: '#FF6B9E',
     fontSize: 16,
     fontWeight: '800',
   },

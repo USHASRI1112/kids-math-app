@@ -10,6 +10,7 @@ import AdditionPracticeModule from '../../components/addition/AdditionPracticeMo
 import AdditionQuizModule from '../../components/addition/AdditionQuizModule';
 import AdditionTestModule from '../../components/addition/AdditionTestModule';
 import AdditionTimerModule from '../../components/addition/AdditionTimerModule';
+import KidBackdrop from '../../components/KidBackdrop';
 import SubtractionLearnEngine from '../../components/subtraction/SubtractionLearnEngine';
 import SubtractionPracticeModule from '../../components/subtraction/SubtractionPracticeModule';
 import SubtractionTestModule from '../../components/subtraction/SubtractionTestModule';
@@ -45,6 +46,7 @@ export default function ActivityDetailScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
+      <KidBackdrop />
       {topicKey === 'addition' && activityKey === 'learn' ? (
         <AdditionLearnEngine />
       ) : topicKey === 'subtraction' && activityKey === 'learn' ? (
@@ -78,7 +80,7 @@ export default function ActivityDetailScreen() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFF8FC',
   },
   container: {
     flex: 1,

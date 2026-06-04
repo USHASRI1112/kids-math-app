@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import KidBackdrop from '../KidBackdrop';
 
 type PracticeStage = 1 | 2 | 3;
 type Difficulty = 'easy' | 'medium' | 'hard';
@@ -367,6 +368,7 @@ export default function AdditionPracticeModule() {
 
   return (
     <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+      <KidBackdrop />
       <View style={styles.headerCard}>
         <View>
           <Text style={styles.kicker}>{t('addition_practice.title')}</Text>
@@ -592,19 +594,27 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 14,
     paddingBottom: 32,
+    backgroundColor: '#FFF8FC',
   },
   headerCard: {
-    backgroundColor: '#EAF2FF',
-    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
     padding: 18,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
   },
   kicker: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -612,26 +622,26 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 28,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   rewardLabel: {
     color: '#FFFFFF',
     fontWeight: '800',
   },
   badgeCard: {
-    borderRadius: 20,
-    backgroundColor: '#EAF8EF',
+    borderRadius: 24,
+    backgroundColor: '#FFF0F7',
     padding: 16,
-    borderWidth: 1,
-    borderColor: '#BFE7CC',
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
   },
   badgeLabel: {
-    color: '#2E5E43',
+    color: '#FF6B9E',
     fontWeight: '800',
     marginBottom: 4,
   },
   badgeTitle: {
-    color: '#1E7A3A',
+    color: '#7E2D6A',
     fontSize: 18,
     fontWeight: '900',
   },
@@ -641,57 +651,62 @@ const styles = StyleSheet.create({
   },
   stageChip: {
     flex: 1,
-    borderRadius: 18,
+    borderRadius: 20,
     padding: 12,
-    backgroundColor: '#F4F7FD',
-    borderWidth: 1,
-    borderColor: '#D9E3F6',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
   },
   stageChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   stageChipTitle: {
-    color: '#16336C',
+    color: '#7E2D6A',
     fontWeight: '900',
     marginBottom: 4,
   },
   stageChipTitleActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   stageChipSubtitle: {
-    color: '#5D7195',
+    color: '#704D66',
     fontSize: 12,
   },
   stageChipSubtitleActive: {
-    color: '#DCE6FF',
+    color: '#FFB3D1',
   },
   stageCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 18,
-    borderWidth: 1,
-    borderColor: '#E4EBF7',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
+    shadowColor: '#D84E9A',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 2,
     gap: 12,
   },
   stageHeading: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   stageDescription: {
     fontSize: 15,
-    color: '#4A5A78',
+    color: '#704D66',
     lineHeight: 22,
   },
   questionText: {
     fontSize: 30,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   hintText: {
     fontSize: 15,
-    color: '#5D7195',
+    color: '#704D66',
   },
   optionGrid: {
     flexDirection: 'row',
@@ -700,10 +715,10 @@ const styles = StyleSheet.create({
   },
   optionCard: {
     width: '48%',
-    borderRadius: 18,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    borderRadius: 20,
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     minHeight: 74,
     alignItems: 'center',
     justifyContent: 'center',
@@ -712,28 +727,28 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.98 }],
   },
   optionCardCorrect: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#BFE7CC',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   optionCardWrong: {
-    backgroundColor: '#FFF0F0',
-    borderColor: '#F4B4B4',
+    backgroundColor: '#FFE8EF',
+    borderColor: '#FF9DB6',
   },
   optionValue: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   optionValueCorrect: {
-    color: '#1E7A3A',
+    color: '#FF6B9E',
   },
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   primaryButton: {
-    backgroundColor: '#16336C',
-    borderRadius: 18,
+    backgroundColor: '#FF6B9E',
+    borderRadius: 999,
     paddingVertical: 14,
     paddingHorizontal: 18,
     alignItems: 'center',
@@ -752,16 +767,16 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   columnTitle: {
-    color: '#5A7DCB',
+    color: '#FF6B9E',
     fontWeight: '800',
     fontSize: 12,
     textTransform: 'uppercase',
   },
   matchCard: {
-    borderRadius: 16,
-    backgroundColor: '#F7F9FC',
-    borderWidth: 1,
-    borderColor: '#DCE6F8',
+    borderRadius: 18,
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     padding: 12,
     minHeight: 62,
     flexDirection: 'row',
@@ -769,22 +784,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   matchCardSelected: {
-    backgroundColor: '#EEF4FF',
-    borderColor: '#8CB2FF',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   matchCardMatched: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#BFE7CC',
+    backgroundColor: '#FFF0F7',
+    borderColor: '#FFB3D1',
   },
   matchText: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   matchMark: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#1E7A3A',
+    color: '#FF6B9E',
   },
   difficultyRow: {
     flexDirection: 'row',
@@ -793,22 +808,22 @@ const styles = StyleSheet.create({
   difficultyChip: {
     flex: 1,
     borderRadius: 999,
-    backgroundColor: '#F4F7FD',
-    borderWidth: 1,
-    borderColor: '#D9E3F6',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     paddingVertical: 10,
     alignItems: 'center',
   },
   difficultyChipActive: {
-    backgroundColor: '#16336C',
-    borderColor: '#16336C',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FF6B9E',
   },
   difficultyText: {
-    color: '#16336C',
+    color: '#7E2D6A',
     fontWeight: '800',
   },
   difficultyTextActive: {
-    color: '#FFFFFF',
+    color: '#FF6B9E',
   },
   bubbleGrid: {
     flexDirection: 'row',
@@ -820,9 +835,9 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72,
     borderRadius: 36,
-    backgroundColor: '#DCEBFF',
-    borderWidth: 1,
-    borderColor: '#8CB2FF',
+    backgroundColor: '#FFF8FC',
+    borderWidth: 2,
+    borderColor: '#FFD2EA',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -830,38 +845,38 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.97 }],
   },
   bubblePopped: {
-    backgroundColor: '#EAF8EF',
-    borderColor: '#BFE7CC',
+    backgroundColor: '#FFF2FA',
+    borderColor: '#FFB3D1',
   },
   bubbleShaken: {
-    backgroundColor: '#FFF0F0',
-    borderColor: '#F4B4B4',
+    backgroundColor: '#FFE8EF',
+    borderColor: '#FF9DB6',
   },
   bubbleText: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#16336C',
+    color: '#7E2D6A',
   },
   bubbleTextPopped: {
-    color: '#1E7A3A',
+    color: '#FF6B9E',
   },
   completeCard: {
     borderRadius: 22,
-    backgroundColor: '#EAF8EF',
-    borderWidth: 1,
-    borderColor: '#BFE7CC',
+    backgroundColor: '#FFF0F7',
+    borderWidth: 2,
+    borderColor: '#FFB3D1',
     padding: 18,
     alignItems: 'center',
   },
   completeTitle: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#1E7A3A',
+    color: '#FF6B9E',
     marginBottom: 6,
   },
   completeBody: {
     fontSize: 16,
-    color: '#2E5E43',
+    color: '#704D66',
     textAlign: 'center',
   },
 });

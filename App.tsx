@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider } from 'react-native-paper';
 import { initI18n } from './src/i18n';
 import AppNavigator from './src/navigation/AppNavigator';
+import { kidTheme } from './src/theme/kidTheme';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -31,9 +33,11 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.root}>
       <SafeAreaProvider style={styles.root}>
-        <View style={styles.container}>
-          <AppNavigator />
-        </View>
+        <PaperProvider theme={kidTheme}>
+          <View style={styles.container}>
+            <AppNavigator />
+          </View>
+        </PaperProvider>
       </SafeAreaProvider>
       <StatusBar style="auto" />
     </GestureHandlerRootView>
@@ -43,10 +47,10 @@ export default function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF8FC',
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF8FC',
   },
 });
